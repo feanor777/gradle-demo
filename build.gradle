@@ -1,3 +1,5 @@
+import java.time.LocalDate
+
 subprojects {
     apply plugin: 'java'
 
@@ -23,11 +25,13 @@ task testOutput() {
 }
 
 task testInput() {
-    inputs.files "$rootDir/test.txt"
+    inputs.property('currentDate', LocalDate.now().toString()) //add plusDays(1) to show change of the input
+    outputs.files "$rootDir/test.txt"
 
     doFirst {
-        sleep(3000)
         println 'executing creating new file'
-        new File("$rootDir/test.txt").createNewFile()
+        def file = new File("$rootDir/test.txt")
+        file.createNewFile()
+        file.write(LocalDate.now().toString())
     }
 }
