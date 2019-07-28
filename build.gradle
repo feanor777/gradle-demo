@@ -25,8 +25,9 @@ task testOutput() {
 }
 
 task testInput() {
-    inputs.property('currentDate', LocalDate.now().toString()) //add plusDays(1) to show change of the input
+    inputs.property('currentDate', LocalDate.now().toString())
     outputs.files "$rootDir/test.txt"
+//    outputs.cacheIf { true }
 
     doFirst {
         println 'executing creating new file'
