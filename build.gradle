@@ -12,3 +12,10 @@ subprojects {
     dependencies {
     }
 }
+
+task testTask() {
+    doFirst {
+        println 'execution demo'
+    }
+    println 'configuration demo'
+}

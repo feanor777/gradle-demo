@@ -4,6 +4,8 @@ pluginManagement {
 	}
 }
 
+println 'initialization demo'
+
 rootProject.name = 'gradle-demo'
 include 'a'
 include 'b'
