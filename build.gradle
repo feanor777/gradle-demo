@@ -13,9 +13,11 @@ subprojects {
     }
 }
 
-task testTask() {
+task testOutput() {
+//    outputs.files "$rootDir/test.txt"
     doFirst {
-        println 'execution demo'
+        sleep(3000)
+        println 'executing creating new file'
+        new File("$rootDir/test.txt").createNewFile()
     }
-    println 'configuration demo'
 }
