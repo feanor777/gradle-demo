@@ -21,3 +21,13 @@ task testOutput() {
         new File("$rootDir/test.txt").createNewFile()
     }
 }
+
+task testInput() {
+    inputs.files "$rootDir/test.txt"
+
+    doFirst {
+        sleep(3000)
+        println 'executing creating new file'
+        new File("$rootDir/test.txt").createNewFile()
+    }
+}
