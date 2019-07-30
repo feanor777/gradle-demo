@@ -1,4 +1,18 @@
-import java.time.LocalDate
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.netflix.nebula:gradle-lint-plugin:10.4.2"
+    }
+}
+
+apply plugin: 'nebula.lint'
+
+allprojects {
+    apply plugin: 'jacoco'
+}
 
 subprojects {
     apply plugin: 'java'
@@ -8,31 +22,11 @@ subprojects {
     sourceCompatibility = '1.8'
 
     repositories {
-        mavenCentral()
+        jcenter()
     }
 
     dependencies {
-    }
-}
-
-task testOutput() {
-//    outputs.files "$rootDir/test.txt"
-    doFirst {
-        sleep(3000)
-        println 'executing creating new file'
-        new File("$rootDir/test.txt").createNewFile()
-    }
-}
-
-task testInput() {
-    inputs.property('currentDate', LocalDate.now().toString())
-    outputs.files "$rootDir/test.txt"
-//    outputs.cacheIf { true }
-
-    doFirst {
-        println 'executing creating new file'
-        def file = new File("$rootDir/test.txt")
-        file.createNewFile()
-        file.write(LocalDate.now().toString())
+        implementation 'com.google.guava:guava:26.0-jre'
+        implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.4.0'
     }
 }
