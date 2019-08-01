@@ -8,7 +8,6 @@ buildscript {
     }
 }
 
-apply from: 'versions.gradle'
 apply plugin: 'nebula.lint'
 
 allprojects {
@@ -17,7 +16,7 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
-
+    apply from: "$rootDir/versions.gradle"
     group = 'com.spdukraine'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = '1.8'
@@ -27,7 +26,7 @@ subprojects {
     }
 
     dependencies {
-        implementation "com.google.guava:guava:$guavaVersion"
-        implementation "com.fasterxml.jackson.datatype:$jacksonDatatypeVersion"
+        implementation("com.google.guava:guava")
+        implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
     }
 }

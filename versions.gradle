@@ -1,5 +1,7 @@
-ext {
-    guavaVersion = '26.0-jre'
-    jacksonDatatypeVersion = 'jackson-datatype-jsr310:2.4.0'
-    mapstructVersion = '1.2.0.Final'
+dependencies {
+    constraints {
+        implementation 'com.google.guava:guava:26.0-jre'
+        implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.4.0'
+        implementation "org.mapstruct:mapstruct-jdk8:1.2.0.Final"
+    }
 }
