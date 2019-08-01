@@ -1,0 +1,5 @@
+ext {
+    guavaVersion = '26.0-jre'
+    jacksonDatatypeVersion = 'jackson-datatype-jsr310:2.4.0'
+    mapstructVersion = '1.2.0.Final'
+}
