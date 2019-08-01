@@ -1,9 +1,9 @@
 package com.spdukraine.gradle;
 
-import org.mapstruct.Mapper;
+import com.spdukraine.gradle.service.TestService;
 
 public class Test {
   public static void main(String[] args) {
-    Mapper mapper = null;
+    TestService testService = null;
   }
 }
